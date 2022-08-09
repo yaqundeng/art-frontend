@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import Login from './components/Login';
 // import Logout from './components/Logout';
-import Portfolio from './components/Portfolio';
+import PublicPhotos from './components/PublicPhotos';
 import PersonalPhotos from './components/PersonalPhotos';
 import WebDes from './components/WebDes';
 import './App.css';
@@ -32,11 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar bg="primary" expand="lg" stick="top" variant="dark" >
+      <Navbar bg="dark" expand="lg" stick="top" variant="dark" >
         <Container className="container-fluid">
         <Navbar.Brand className="brand" href="/">
-          <img src="../public/logo192.png" alt="frontpage logo" className="moviesLogo"/>
-          Art Portfolio
+          <img src="/logo.png" alt="frontpage logo" className="moviesLogo"/>
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
@@ -44,7 +44,7 @@ function App() {
             <Nav.Link as={Link} to={"/home"}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to={"/portfolio"}>
+            <Nav.Link as={Link} to={"/photos"}>
               Photos
             </Nav.Link>
             {user ? (
@@ -52,7 +52,7 @@ function App() {
                 My Page
               </Nav.Link>
             ) : (
-              <Nav.Link as={Link} to={"/portfolio"}></Nav.Link>
+              <Nav.Link as={Link} to={"/photos"}> </Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>
@@ -73,8 +73,8 @@ function App() {
           <WebDes />
         }/>
 
-        <Route exact path={"/portfolio"} element={
-          <Portfolio user={ user } />
+        <Route exact path={"/photos"} element={
+          <PublicPhotos user={ user } />
         }/>
 
         <Route path={"/mypage"} element={

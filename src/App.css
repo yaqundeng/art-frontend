@@ -28,6 +28,11 @@
   color: #61dafb;
 }
 
+.moviesLogo {
+  width: 10rem;
+  height: 10rem;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
