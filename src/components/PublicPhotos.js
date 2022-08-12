@@ -54,9 +54,6 @@ return (
                                                 console.log("add clicked");
                                                 
                                             }}/>
-                                            <div className="likeCounts">
-                                                {"test"}
-                                            </div>
                                         </div>
                                     )}
                                 </Card.ImgOverlay>
@@ -68,8 +65,8 @@ return (
                                         <Card.Text>
                                             Photo by {photo.user_name}
                                         </Card.Text>
-                                        <Link className="reviewLink" to={"/"+photo._id}>
-                                            View Reviews
+                                        <Link className="reviewLink" to={"/photos/"+photo._id}>
+                                            View reviews and more
                                         </Link>
                                     </Card.Body>
                                 </Card>

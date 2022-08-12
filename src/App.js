@@ -77,6 +77,10 @@ function App() {
           <PublicPhotos user={ user } />
         }/>
 
+        <Route exact path={"/photos/:id/"} element={
+          <SinglePhoto user={user}/>
+        } />
+
         <Route path={"/mypage"} element={
           user ? 
           <PersonalPhotos
