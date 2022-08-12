@@ -16,3 +16,14 @@ This is the frontend: https://artportfolio-frontend.herokuapp.com/
 ![image](https://media.github.ccs.neu.edu/user/9542/files/ae2ba56b-7d53-4504-a1d9-49a67827707e)
 ![image](https://media.github.ccs.neu.edu/user/9542/files/ea9ecf43-3fcb-4ec3-9f22-b864d2aa5aa4)
 >>>>>>> 85c9f82c36bfbd9dcbaa2cca06d9a5bd790b4855
+
+Iter 2:
+Contribution and Progress
+1. Yaqun Deng: Corrected earlier functions including app.js and photo services. Created new pages edit photo and reviews. Added google id login methods. Updated library setups for the next iteration.
+2. Yichen Han: Created the home and portfolio page, and connected the backend to design the review page. Updated the frame of the whole app, and added the "like" feature.
+3. Wen Huang: Set up backend apis. Allowing user to get/add/delete photos, get/add/edit/delete reviews and get/edit portfolios. Link AWS S3 and the backend to store images in cloud.
+We are making progress as planed. More apis provided in the backend, and created and designed more pages on the frontend. Implemented some functions (eg. screenshot), and added more features (eg. likes) to improve user experience.
+
+<img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/d9f3d7ce-3164-4faf-bd5b-7e016932a14f">
+![image](https://media.github.ccs.neu.edu/user/9542/files/cdfdea7c-fbfe-4d37-be15-340e257a0341)
+
