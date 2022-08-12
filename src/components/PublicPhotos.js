@@ -68,7 +68,7 @@ return (
                                         <Card.Text>
                                             Photo by {photo.user_name}
                                         </Card.Text>
-                                        <Link className="reviewLink" to={"/"+photo._id}>
+                                        <Link className="reviewLink" to={"/photos/"+photo._id}>
                                             View Reviews
                                         </Link>
                                     </Card.Body>
