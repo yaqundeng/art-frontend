@@ -1,36 +1,42 @@
-import { useState } from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { useEffect, useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import Login from './components/Login';
-// import Logout from './components/Logout';
+import Login from './components/Login';
+import Logout from './components/Logout';
 import PublicPhotos from './components/PublicPhotos';
 import PersonalPhotos from './components/PersonalPhotos';
 import WebDes from './components/WebDes';
 import './App.css';
+import EditPhoto from './components/EditPhoto';
+import Review from './components/Review';
 
 function App() {
   
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+
   const [user, setUser] = useState(null);
 
-  // useEffect(() => {
-  //   let loginData = JSON.parse(localStorage.getItem("login"));
-  //   if (loginData) {
-  //     let loginExp = loginData.exp;
-  //     let now = Date.now()/1000;
-  //     if (now < loginExp) {
-  //       // Not expired
-  //       setUser(loginData);
-  //     } else {
-  //       // Expired
-  //       localStorage.setItem("login", null);
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    let loginData = JSON.parse(localStorage.getItem("login"));
+    if (loginData) {
+      let loginExp = loginData.exp;
+      let now = Date.now()/1000;
+      if (now < loginExp) {
+        // Not expired
+        setUser(loginData);
+      } else {
+        // Expired
+        localStorage.setItem("login", null);
+      }
+    }
+  }, []);
 
   return (
+    <GoogleOAuthProvider clientId={clientId}>
     <div className="App">
       <Navbar bg="dark" expand="lg" stick="top" variant="dark" >
         <Container className="container-fluid">
@@ -56,11 +62,11 @@ function App() {
             )}
           </Nav>
         </Navbar.Collapse>
-        {/* { user ? (
+        { user ? (
           <Logout setUser={setUser} />
         ) : (
           <Login setUser={setUser} />
-        )} */}
+        )}
         </Container>
       </Navbar>
 
@@ -89,8 +95,22 @@ function App() {
           :
           <WebDes />
         }/>
+
+        <Route path={"/photos/:id"} element={
+          <EditPhoto
+          user = {user}
+          />
+        }/>
+
+        <Route path={"/photos/:id/review"} element={
+          <Review
+          user = {user}
+          />
+        }/>
+
       </Routes>
     </div>
+    </GoogleOAuthProvider>
   );
 }
 
