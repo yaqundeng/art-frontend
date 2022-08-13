@@ -25,5 +25,6 @@ Contribution and Progress
 We are making progress as planed. More apis provided in the backend, and created and designed more pages on the frontend. Implemented some functions (eg. screenshot), and added more features (eg. likes) to improve user experience.
 
 <img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/d9f3d7ce-3164-4faf-bd5b-7e016932a14f">
-![image](https://media.github.ccs.neu.edu/user/9542/files/cdfdea7c-fbfe-4d37-be15-340e257a0341)
+<img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/cdfdea7c-fbfe-4d37-be15-340e257a0341">
+
 
