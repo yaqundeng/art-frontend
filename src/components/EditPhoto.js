@@ -37,7 +37,7 @@ const EditPhoto = ({user}) => {
     }, [params.id]);
 
     useEffect(()=>{
-        console.log("11111", photo.photo_name);
+        console.log(photo.photo_name, "received");
     },[photo])
     
     return(
