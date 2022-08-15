@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Button from 'react-bootstrap/Button';
 import moment from 'moment';
-
+import StyledDemo from './Crop';
 
 const EditPhoto = ({user}) => {
     let params = useParams();
@@ -30,7 +30,7 @@ const EditPhoto = ({user}) => {
                     reviews: photo.data.reviews
                 })
             }).catch(e => {
-            console.log(e+"!!!!!!");
+            console.log(e);
         });
         }
         getPhoto(params.id)
@@ -64,6 +64,13 @@ const EditPhoto = ({user}) => {
                 <Row>
                     <Button>Delete Photo</Button>
                 </Row>
+                <Col>
+                <StyledDemo img = {photo.img}/>
+                {user &&
+                    <Link to ={"/photos/" + params.id + "/upload"}>
+                        Upload Photo
+                    </Link>}
+                </Col>
                 <h2>Reviews</h2>
                 <Col>
                 {user &&
@@ -79,7 +86,6 @@ const EditPhoto = ({user}) => {
                             <p className='review'>{review.review}</p>
                             { user && user.googleId === review.user_id &&
                             <Row>
-                                
                                 <Col>
                                     <Link to={{
                                         pathname: "/photos/"+params.id+"/review"
@@ -97,7 +103,8 @@ const EditPhoto = ({user}) => {
                                         var reviewData = {
                                             review: review,
                                             user_id: review.user_id,
-                                            review_id: review._id
+                                            review_id: review._id,
+                                            photo_id: params.id
                                         }
                                         PhotoDataService.deleteReview(reviewData)
                                         .then(

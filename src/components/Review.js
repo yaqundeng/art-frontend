@@ -31,7 +31,7 @@ const Review = ({ user }) => {
             review: review,
             name: user.name,
             user_id: user.googleId,
-            movie_id: params.id // get movie id from url
+            photo_id: params.id // get photo id from url
         }
 
         if(editing) {
@@ -41,7 +41,7 @@ const Review = ({ user }) => {
                 review: review,
                 name: user.name,
                 user_id: user.googleId,
-                movie_id: params.id,
+                photo_id: params.id,
                 review_id: initialReviewState._id
             }
             PhotoDataService.updateReview(editData)
