@@ -4,9 +4,12 @@ import PortfolioDataService from '../services/portfolio'
 import "./PersonalPhotos.css";
 import Button from "react-bootstrap/Button";
 import PhotosDisplay from './PhotosDisplay';
+import {Link, useParams} from 'react-router-dom';
 
 const PersonalPhotos = ({user}) => {
 
+    let params = useParams();
+    
     const[personalPhotos, setPersonalPhotos] = useState([]);
 
     const[photoIds, setPhotoIds] = useState([]);
@@ -25,20 +28,27 @@ const PersonalPhotos = ({user}) => {
     useEffect(() => {
         retrivePhotoIds();
     }, [retrivePhotoIds])
-    
+
     const retrivePhotoListByIds = useCallback((photoIds) => {
-        const photoList = [];
+        // const photoList = [];
         
-        photoIds.forEach((id) => {
-            PhotosDataService.getPhoto(id)
-            .then(response => {
-                photoList.push(response.data);
-            })
-            .catch(error => {
-                console.log(error)
-            }) 
+        // photoIds.forEach((id) => {
+        //     PhotosDataService.getPhoto(id)
+        //     .then(response => {
+        //         photoList.push(response.data);
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     }) 
+        // })
+        // setPersonalPhotos(photoList);
+        PhotosDataService.getPersonalPhotoLists(photoIds)
+        .then(response => {
+            setPersonalPhotos(response.data);
         })
-        setPersonalPhotos(photoList);
+        .catch(error => {
+            console.log(error);
+        })
     },[photoIds]);
 
     useEffect(() => {
@@ -49,11 +59,14 @@ const PersonalPhotos = ({user}) => {
 
     return (
         <div className='App'>
-            <Button variant="dark" type="button">
-                Add
-            </Button>
+            <Link to ={"/photos/" + params.id + "/upload"}>
+                <Button className="addPhotoBtn" variant="dark" type="button">
+                    Add Photo
+                </Button>
+            </Link>
             
-            <PhotosDisplay user={user} photos={personalPhotos}>
+            
+            <PhotosDisplay user={user} photos={personalPhotos} personal={true}>
 
             </PhotosDisplay>
         </div>

@@ -10,6 +10,10 @@ class PhotosDataService {
         return axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/photo/${id}`)
     }
 
+    getPersonalPhotoLists(ids) {
+        return axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/personalphotos`, {params: {ids: ids}})
+    }
+
     uploadPhoto(id, data){
         return axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/portfolio/${id}`, data)
         .catch(e => {

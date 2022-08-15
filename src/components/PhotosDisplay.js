@@ -8,8 +8,9 @@ import Card from "react-bootstrap/Card";
 import { BsHeart, BsFillHeartFill } from "react-icons/bs";
 import {Link} from "react-router-dom";
 import "./PhotosDisplay.css";
+import Button from "react-bootstrap/Button";
 
-const PhotosDisplay = ({photos, user}) => {
+const PhotosDisplay = ({photos, user, personal}) => {
     return (
     <Container className="main-container">
         <Form>
@@ -22,6 +23,10 @@ const PhotosDisplay = ({photos, user}) => {
                                 {(photo.like.length !== 0 ?
                                     <div>
                                         <BsFillHeartFill className="heart heartFill" onClick={() => {
+                                            if(personal) {
+                                                return;
+                                            }
+
                                             const data = {
                                                 photo_id: photo._id,
                                                 like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
@@ -44,6 +49,9 @@ const PhotosDisplay = ({photos, user}) => {
                                     :
                                     <div>
                                         <BsHeart className="heart heartEmpty" onClick={() => {
+                                            if(personal) {
+                                                return;
+                                            }
                                             const data = {
                                                 photo_id: photo._id,
                                                 like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
@@ -72,9 +80,14 @@ const PhotosDisplay = ({photos, user}) => {
                                     <Card.Text>
                                         Photo by {photo.user_name}
                                     </Card.Text>
+                                    
                                     <Link className="reviewLink" to={"/photos/"+photo._id}>
-                                        Operations and Details
+                                        <Button variant="dark" type="button">
+                                            {personal ? "Edit or Delete": "Operations and Details" }
+                                        </Button>
+                                        
                                     </Link>
+                                
                                 </Card.Body>
                             </Card>
                         </Col>
