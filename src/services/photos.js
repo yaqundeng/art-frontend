@@ -10,6 +10,10 @@ class PhotosDataService {
         return axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/id/${id}`)
     }
 
+    updatePhotoLike(data) {
+        return axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/`, data)
+    }
+
     createReview(data){
         return axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/review`, data);
     }

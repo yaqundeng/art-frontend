@@ -16,8 +16,8 @@ const WebDes = () => {
                 </h5>
             </div>
 
-            <div class="copyrightContainer">
-                <p class="foot">© 2022 Hala Madrid. </p>
+            <div className="copyrightContainer">
+                <p className="foot">© 2022 Hala Madrid. </p>
             </div>
         </div>
     )

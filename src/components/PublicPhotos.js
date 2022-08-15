@@ -1,4 +1,4 @@
-import PhotoDataService from '../services/photos'
+import PhotosDataService from '../services/photos'
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -15,8 +15,9 @@ const PublicPhotos = (user) => {
 
     const retrivePhotos = useCallback(() => {
         
-        PhotoDataService.getAll()
+        PhotosDataService.getAll()
             .then(response => {
+                
                 setPhotos(response.data);
             })
             .catch(e => {
@@ -41,7 +42,19 @@ return (
                                     {(photo.like.length !== 0 ?
                                         <div>
                                             <BsFillHeartFill className="heart heartFill" onClick={() => {
-                                                console.log("add clicked");
+                                                const data = {
+                                                    photo_id: photo._id,
+                                                    like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
+                                                }
+
+                                                PhotosDataService.updatePhotoLike(data)
+                                                .then(response => {
+                                                    console.log("Update Likes of Photo Successfully")
+                                                })
+                                                .catch(error => {
+                                                    console.log(error)
+                                                })
+
                                             }}/>
                                             <div className="likeCounts">
                                                 {photo.like.length}
@@ -51,11 +64,22 @@ return (
                                         :
                                         <div>
                                             <BsHeart className="heart heartEmpty" onClick={() => {
-                                                console.log("add clicked");
+                                                const data = {
+                                                    photo_id: photo._id,
+                                                    like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
+                                                }
+
+                                                PhotosDataService.updatePhotoLike(data)
+                                                .then(response => {
+                                                    console.log("Update Likes of Photo Successfully")
+                                                })
+                                                .catch(error => {
+                                                    console.log(error)
+                                                })
                                                 
                                             }}/>
                                             <div className="likeCounts">
-                                                {"test"}
+                                                
                                             </div>
                                         </div>
                                     )}
