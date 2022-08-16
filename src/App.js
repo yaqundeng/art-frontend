@@ -13,7 +13,7 @@ import WebDes from './components/WebDes';
 import './App.css';
 import EditPhoto from './components/EditPhoto';
 import Review from './components/Review';
-import UploadPhoto from './components/UploadPhoto';
+import UploadImages from './components/UploadPhoto';
 
 function App() {
   
@@ -106,7 +106,7 @@ function App() {
         }/>
 
         <Route path={"/photos/:id/upload"} element={
-          <UploadPhoto
+          <UploadImages
           user = {user}
           />
         }/>

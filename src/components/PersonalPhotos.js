@@ -55,7 +55,7 @@ const PersonalPhotos = ({user}) => {
         retrivePhotoListByIds(photoIds);
     }, [retrivePhotoListByIds])
 
-    console.log(personalPhotos);
+    console.log(params.id)
 
     return (
         <div className='App'>
