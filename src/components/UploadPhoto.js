@@ -4,10 +4,34 @@ import PhotosDataService from "../services/photos";
 import PortfolioDataService from "../services/portfolio.js";
 
 
-const UploadImages =({ user }) => {
-    console.log(user);
 
+
+
+
+
+const UploadImages = ({ user }) => {
+    console.log(user);
     const [photo_id, setPhotoId] = useState("");
+    const [myPortfolio, setPortfolio] = useState([]);
+
+    const getMyPortfolio = useCallback((id) => {
+        console.log(id);
+        PortfolioDataService.getPortfolio(id)
+            .then(response => {
+                console.log(response.data);
+                setPortfolio(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    })
+    
+    useEffect(() => {
+        getMyPortfolio(user.googleId);
+    }, [user])
+
+    console.log(myPortfolio);
+
     const handleImageUpload = (event) => {
         event.preventDefault();
         const photo_name = event.target[0].value;
@@ -17,44 +41,25 @@ const UploadImages =({ user }) => {
         formData.append("user_name", user.name);
         formData.append("photo_name", photo_name);
         formData.append("photo", photo);
-
         const response = PhotosDataService.uploadPhoto(user.googleId, formData)
             .then(
-                (photo_id) => { setPhotoId(photo_id) }
+                (photo_id) => {
+                    setPhotoId(photo_id.data);
+                    myPortfolio.push(photo_id.data);
+                    console.log(myPortfolio);
+                    PortfolioDataService.updatePortfolio(user.googleId, myPortfolio);
+                }
             ).catch((e) => { console.log(e) })
     };
-    
-    const [myPortfolio, setMyPortfolio] = useState([]);
 
-    const retriveMyPortfolio = useCallback((id) => {
-        PortfolioDataService.getPortfolio()
-        .then(response => {
-            console.log(response);
-            //setMyPortfolio(response.data);
-        })
-        .catch(e => {
-            console.log(e);
-        })
-    })
-
-    useEffect(() => {
-        retriveMyPortfolio(user.googleId);
-        // update should be below? 
-        //PortfolioDataService.updatePortfolio(user.googleId, myPortfolio);
-    }, [retriveMyPortfolio])
-
-    //const myPortfolio = PortfolioDataService.getPortfolio(user.googleId);
-    //myPortfolio.push(photo_id);
-
-    //PortfolioDataService.updatePortfolio(user.googleId, myPortfolio);
-return (
-    <div>
-        <form onSubmit={handleImageUpload}>
-            <input id="photo_name" type="text" />
-            <input id="fileInput" type="file" />
-            <input type="submit" />
-        </form>
-    </div>
-);
+    return (
+        <div>
+            <form onSubmit={handleImageUpload}>
+                <input id="photo_name" type="text" />
+                <input id="fileInput" type="file" />
+                <input type="submit" />
+            </form>
+        </div>
+    );
 }
 export default UploadImages;
