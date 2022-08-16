@@ -3,44 +3,32 @@ import { useNavigate, useParams } from 'react-router-dom';
 import PhotosDataService from "../services/photos";
 
 const UploadImages =({ user }) => {
-    const navigate = useNavigate();
-    let params = useParams();
-
-    const[img, setImg] = useState("");
-
-    const onChange = e => {
-        const img = e.target.files[0];
-        setImg(img);
-    }
-
-    const uploadHandle = () => {
-        
-        // var data = {
-        //     user_name: user.name,
-        //     user_id: user.googleId,
-        //     photo_name: img.name,
-        //     //ilePath: URL.createObjectURL(img)
-        // }
+    const [photo_id, setPhotoId] = useState("");
+    const handleImageUpload = (event) => {
+        event.preventDefault();
+        const photo_name = event.target[0].value;
+        const photo = event.target[1].files[0];
         const formData = new FormData();
-        formData.append("my img", img, img.name);
-        console.log("!!!", img);
-        // PhotosDataService.uploadPhoto(user.googleId, formData)
-        // .then(res => {navigate("/photos/"+params.id)})
-        // .catch(e => { console.log(e)});
-    }
+        formData.append("user_id", user.id);
+        formData.append("user_name", user.name);
+        formData.append("photo_name", photo_name);
+        formData.append("photo", photo);
 
-    return (
-        <div>
-            <input 
-            //style={{display: 'none'}}
-            type ="file" 
-            onChange={onChange} 
-            // ref={fileInput => this.fileInput = fileInput}/>
-            />
-            {/* <button onClick={() => this.fileInput.click()}>Pick a file</button> */}
-            <button onClick={uploadHandle}>Upload</button>
-        </div>
-    )
+        const response = PhotosDataService.uploadPhoto(user.id, formData)
+            .then(
+                (photo_id) => { setPhotoId(photo_id) }
+            ).catch((e) => { console.log(e) })
+    };
+    console.log(photo_id.data);
+return (
+    <div>
+        <form onSubmit={handleImageUpload}>
+            <input id="photo_name" type="text" />
+            <input id="fileInput" type="file" />
+            <input type="submit" />
+        </form>
+    </div>
+);
 }
 
 export default UploadImages;
