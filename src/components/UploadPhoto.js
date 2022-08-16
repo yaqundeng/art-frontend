@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import PhotosDataService from "../services/photos";
+import PortfolioDataService from "../services/portfolio.js";
+
 
 const UploadImages =({ user }) => {
     const [photo_id, setPhotoId] = useState("");
@@ -20,6 +22,9 @@ const UploadImages =({ user }) => {
             ).catch((e) => { console.log(e) })
     };
     console.log(photo_id.data);
+    const myPortfolio = PortfolioDataService.getPortfolio(user.id);
+    myPortfolio.push(photo_id);
+    PortfolioDataService.updatePortfolio(user.id, myPortfolio);
 return (
     <div>
         <form onSubmit={handleImageUpload}>
@@ -30,5 +35,4 @@ return (
     </div>
 );
 }
-
 export default UploadImages;
