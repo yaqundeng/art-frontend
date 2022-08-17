@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import Cropper from 'react-easy-crop'
 import Slider from '@mui/material/Slider'
-import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { withStyles } from '@mui/styles'
 import ImgDialog from './ImgDialog'
@@ -19,19 +18,19 @@ const Demo = ({ img, classes }) => {
     setCroppedAreaPixels(croppedAreaPixels)
   }, [])
 
-  const showCroppedImage = useCallback(async () => {
-    try {
-      const croppedImage = await getCroppedImg(
-        img,
-        croppedAreaPixels,
-        rotation
-      )
-      console.log('donee', { croppedImage })
-      setCroppedImage(croppedImage)
-    } catch (e) {
-      console.error(e)
-    }
-  }, [croppedAreaPixels, rotation])
+  // const showCroppedImage = useCallback(async () => {
+  //   try {
+  //     const croppedImage = await getCroppedImg(
+  //       img,
+  //       croppedAreaPixels,
+  //       rotation
+  //     )
+  //     console.log('donee', { croppedImage })
+  //     setCroppedImage(croppedImage)
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // }, [croppedAreaPixels, rotation])
 
   const onClose = useCallback(() => {
     setCroppedImage(null)
@@ -87,14 +86,14 @@ const Demo = ({ img, classes }) => {
             onChange={(e, rotation) => setRotation(rotation)}
           />
         </div>
-        <Button
+        {/* <Button
           onClick={showCroppedImage}
           variant="contained"
           color="primary"
           classes={{ root: classes.cropButton }}
         >
           Show Result
-        </Button>
+        </Button> */}
       </div>
       <ImgDialog img={croppedImage} onClose={onClose} />
     </div>

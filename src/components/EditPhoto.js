@@ -61,15 +61,15 @@ const EditPhoto = ({user}) => {
                         </Link> */}
                     </Card.Body>
                 </Card>
-                <Row>
+                {/* <Row>
                     <Button>Delete Photo</Button>
-                </Row>
+                </Row> */}
                 <Col>
                 <StyledDemo img = {photo.img}/>
-                {user &&
+                {/* {user &&
                     <Link to ={"/photos/" + params.id + "/upload"}>
                         Upload Photo
-                    </Link>}
+                    </Link>} */}
                 </Col>
                 <h2>Reviews</h2>
                 <Col>
