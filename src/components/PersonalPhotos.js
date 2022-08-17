@@ -55,8 +55,6 @@ const PersonalPhotos = ({user}) => {
         retrivePhotoListByIds(photoIds);
     }, [retrivePhotoListByIds])
 
-    console.log(params.id)
-
     return (
         <div className='App'>
             <Link to ={"/photos/" + params.id + "/upload"}>
