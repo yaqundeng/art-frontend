@@ -27,4 +27,6 @@ We are making progress as planed. More apis provided in the backend, and created
 <img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/d9f3d7ce-3164-4faf-bd5b-7e016932a14f">
 <img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/cdfdea7c-fbfe-4d37-be15-340e257a0341">
 
+Iter 3:
 
+Yaqun Deng: Added a 3rd-party library: react-easy-crop. This function will give us a different look of the pictures, where you can adjust the size, and rotate the pictures by yourself. Added 3 components, and updated services accordingly. Working together to develop "upload image" function.
