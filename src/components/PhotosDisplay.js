@@ -29,7 +29,6 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                             if(personal) {
                                                 return;
                                             }
-                                            
                                             if(!set.has(user.user.googleId)) {
                                                 const data = {
                                                     photo_id: photo._id,

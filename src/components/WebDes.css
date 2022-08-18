@@ -1,38 +1,39 @@
-.homePic {
-    width: 60rem;
-    height: 30rem;
-    margin-top: 6rem;
-  }
+.display {
+    width: 50%;
+    height: auto;
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .descriptionTitle {
-  margin-top: 1em;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 90px;
+    margin-top: 1em;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 90px;
 }
 
 .desContainer {
-  margin-top: 6em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
+    margin-top: 6em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.desText{
-	margin: 50px auto 50px auto;
-	width: 50%;
-	text-align: left;
-	line-height: 2;
+.desText {
+    margin: 50px auto 50px auto;
+    width: 50%;
+    text-align: left;
+    line-height: 2;
 }
 
-.copyrightContainer{
-	background-color: black;
-	padding-top: 60px;
-	padding-bottom: 20px;
+.copyrightContainer {
+    background-color: black;
+    padding-top: 60px;
+    padding-bottom: 20px;
 }
 
-.foot{
-	color: #EAF6F6;
-	font-size: 0.75rem;
-	padding-top: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.foot {
+    color: #EAF6F6;
+    font-size: 0.75rem;
+    padding-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

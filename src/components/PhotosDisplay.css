@@ -8,7 +8,7 @@
 }
 
 .smallPoster {
-    user-select:none;
+    user-select: none;
 }
 
 .heart {
@@ -34,4 +34,4 @@
 
 .reviewLink {
     position: relative;
-  }
+}

@@ -65,6 +65,20 @@ const EditPhoto = ({ user }) => {
                 <Row>
                     <div className="mb-2" >
                         <Button variant="warning" size="lg" onClick={() => {
+                            
+                            for (let i = 0; i < photo.reviews.length; i++) {
+                                let review = photo.reviews[i];
+                                let reviewData = {
+                                    review: review,
+                                    user_id: review.user_id,
+                                    review_id: review._id,
+                                    photo_id: params.id
+                                }
+                                PhotoDataService.deleteReview(reviewData)
+                                    .catch(e => {
+                                        console.log(e);
+                                    });
+                            }
                             const info = { photo_id: photo.id, user_id: user.googleId };
                             PhotoDataService.deletePhoto(user.googleId, info);
                             navigate('/mypage');
@@ -110,7 +124,7 @@ const EditPhoto = ({ user }) => {
                                     </Col>
                                     <Col>
                                         <Button variant='dark' onClick={() => {
-                                            var reviewData = {
+                                            let reviewData = {
                                                 review: review,
                                                 user_id: review.user_id,
                                                 review_id: review._id,
