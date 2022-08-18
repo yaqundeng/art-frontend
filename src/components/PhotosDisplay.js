@@ -12,7 +12,8 @@ import Button from "react-bootstrap/Button";
 
 
 const PhotosDisplay = ({ photos, user, personal }) => {
-    const [userId, setUserId] = useState("");
+    let randomId = Math.floor(Math.random() * 1000000000000000);
+    const [userId, setUserId] = useState(`${randomId}`);
     useEffect(() => {
         if (user.user) {
             setUserId(user.user.googleId);
@@ -32,14 +33,13 @@ const PhotosDisplay = ({ photos, user, personal }) => {
                                             set.has(userId) ?
                                                 <div>
                                                     <BsFillHeartFill className="heart heartFill" onClick={() => {
-                                                        
                                                         if (personal) {
                                                             return;
                                                         }
                                                         if (!set.has(userId)) {
                                                             const data = {
                                                                 photo_id: photo._id,
-                                                                like: [...photo.like, (userId ? userId : "unkonwn user")]
+                                                                like: [...photo.like, userId]
                                                             }
                                                             PhotosDataService.updatePhotoLike(data)
                                                                 .then(response => {
@@ -79,7 +79,7 @@ const PhotosDisplay = ({ photos, user, personal }) => {
                                                         if (!set.has(userId)) {
                                                             const data = {
                                                                 photo_id: photo._id,
-                                                                like: [...photo.like, (userId ? userId : "unkonwn user")]
+                                                                like: [...photo.like, userId]
                                                             }
                                                             PhotosDataService.updatePhotoLike(data)
                                                                 .then(response => {
@@ -118,9 +118,8 @@ const PhotosDisplay = ({ photos, user, personal }) => {
                                                     }
                                                     const data = {
                                                         photo_id: photo._id,
-                                                        like: [...photo.like, (userId ? userId : "unkonwn user")]
+                                                        like: [...photo.like, userId]
                                                     }
-
                                                     PhotosDataService.updatePhotoLike(data)
                                                         .then(response => {
                                                             console.log("Update Likes of Photo Successfully")
@@ -128,7 +127,6 @@ const PhotosDisplay = ({ photos, user, personal }) => {
                                                         .catch(error => {
                                                             console.log(error)
                                                         })
-
                                                 }} />
                                                 <div className="likeCounts">
 
