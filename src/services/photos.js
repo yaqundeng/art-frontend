@@ -18,6 +18,10 @@ class PhotosDataService {
         return axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/portfolio/${id}`, data);
     }
 
+    deletePhoto(id, data) {
+        return axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/portfolio/${id}`, { data });
+    }
+
     updatePhotoLike(data) {
         return axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/v1/photos/`, data);
     }
