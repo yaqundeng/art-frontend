@@ -38,6 +38,8 @@ Contribution and Progress
 
 2.Yichen Han: Added 4 components and related css files. Styled the pages and buttons, and created an api on the backend to get a list of data by a group of ids. Designed services on the frontend to interact with the new developed api. Review code and debug for other teammates. Working together to develop "upload image" function. Post everything on Piazza, put data on Altas and deploy the app on Heroku.
 
+3.Wen Huang: Set up backend apis allowing user to get/add/delete photos, get/add/edit/delete reviews and get/edit portfolios. Linked AWS S3 and the backend to store images in cloud. Created photo uploading page.
+
 Home Page:
 ![image](https://media.github.ccs.neu.edu/user/9542/files/2baf9700-382d-471e-ad3b-7e254943c934)
 ![image](https://media.github.ccs.neu.edu/user/9542/files/e3b202c2-a2b5-4964-b536-772dc79f98ff)
