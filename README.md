@@ -55,5 +55,3 @@ Add photo:
 
 Edit photo and add reviews:
 ![image](https://media.github.ccs.neu.edu/user/9542/files/d6b28c53-cda2-4487-ac5b-f2adf74c814b)
-
-
