@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import React, { useState, useEffect } from 'react';
 import Card from "react-bootstrap/Card";
-import { BsHeart, BsFillHeartFill } from "react-icons/bs";
+import { BsHeart, BsFillHeartFill, BsTextCenter } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./PhotosDisplay.css";
 import Button from "react-bootstrap/Button";
@@ -32,6 +32,7 @@ const PhotosDisplay = ({ photos, user, personal }) => {
                                             set.has(userId) ?
                                                 <div>
                                                     <BsFillHeartFill className="heart heartFill" onClick={() => {
+                                                        
                                                         if (personal) {
                                                             return;
                                                         }
