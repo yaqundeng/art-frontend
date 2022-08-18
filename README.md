@@ -41,13 +41,13 @@ Contribution and Progress
 3.Wen Huang: Set up backend apis allowing user to get/add/delete photos, get/add/edit/delete reviews and get/edit portfolios. Linked AWS S3 and the backend to store images in cloud. Created photo uploading page.
 
 Home page:
-<img width="2559" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/44a3e030-2eee-46e1-bf82-e8f7133cdb1c">
+<img width="1742" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/c005eeff-a2d9-497f-bbab-baa9ca1544e0">
 
 Public photos:
-<img width="2559" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/29b2ff75-6686-479d-a4e0-05530de66cdf">
+<img width="1492" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/ceae3afe-09d1-4589-9eab-9835f5207d4e">
 
 Personal photos:
-<img width="2559" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/ad6b78dc-f356-415a-b53d-092ddbf8fd7a">
+<img width="1565" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/69b7c014-0d7c-4bcb-b9b4-3899564c589b">
 
 Single photo:
 <img width="1025" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/c19d6ecc-4f1e-44ec-a42b-5bc76d6dfb8f">
