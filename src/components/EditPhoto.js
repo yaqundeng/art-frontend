@@ -14,10 +14,13 @@ import { BsInfo } from 'react-icons/bs';
 const EditPhoto = ({ user }) => {
     let params = useParams();
     const navigate = useNavigate();
+    const [userId, setUserId] = useState("");
     const [photo, setPhoto] = useState({
         id: null,
         photo_name: "",
         img: null,
+        user_id: "",
+        user_name: "",
         reviews: []
     });
 
@@ -29,7 +32,9 @@ const EditPhoto = ({ user }) => {
                         id: photo.data._id,
                         photo_name: photo.data.photo_name,
                         img: photo.data.img,
-                        reviews: photo.data.reviews
+                        reviews: photo.data.reviews,
+                        user_id: photo.data.user_id,
+                        user_name: photo.data.user_name
                     })
                 }).catch(e => {
                     console.log(e);
@@ -40,7 +45,11 @@ const EditPhoto = ({ user }) => {
 
     useEffect(() => {
         console.log(photo.photo_name, "received");
+        if (user) {
+            setUserId(user.googleId);
+        }
     }, [photo])
+
 
     return (
         <div>
@@ -51,9 +60,9 @@ const EditPhoto = ({ user }) => {
                         src={photo.img}
                     />
                     <Card.Body>
-                        <Card.Title>Photo Descriptions</Card.Title>
+                        <Card.Title>{photo.photo_name}</Card.Title>
                         <Card.Text>
-                            {photo.description}
+                            {photo.user_name}
                         </Card.Text>
 
                         {/* {user && user.googleId === review.user_id}
@@ -63,13 +72,26 @@ const EditPhoto = ({ user }) => {
                     </Card.Body>
                 </Card>
                 <Row>
-                    <div className="mb-2" >
+                    {userId === photo.user_id && <div className="mb-2" >
                         <Button variant="warning" size="lg" onClick={() => {
+                            for (let i = 0; i < photo.reviews.length; i++) {
+                                let review = photo.reviews[i];
+                                let reviewData = {
+                                    review: review,
+                                    user_id: review.user_id,
+                                    review_id: review._id,
+                                    photo_id: params.id
+                                }
+                                PhotoDataService.deleteReview(reviewData)
+                                    .catch(e => {
+                                        console.log(e);
+                                    });
+                            }
                             const info = { photo_id: photo.id, user_id: user.googleId };
                             PhotoDataService.deletePhoto(user.googleId, info);
                             navigate('/mypage');
                         }}>Delete Photo</Button>
-                    </div>
+                    </div>}
                 </Row>
                 <Col>
                     <StyledDemo img={photo.img} />
@@ -102,15 +124,15 @@ const EditPhoto = ({ user }) => {
                                             state={{
                                                 currentReview: review
                                             }}>
-                                                <Button variant="dark" type="button">
-                                                    Edit
-                                                </Button>
-                                            
+                                            <Button variant="dark" type="button">
+                                                Edit
+                                            </Button>
+
                                         </Link>
                                     </Col>
                                     <Col>
                                         <Button variant='dark' onClick={() => {
-                                            var reviewData = {
+                                            let reviewData = {
                                                 review: review,
                                                 user_id: review.user_id,
                                                 review_id: review._id,

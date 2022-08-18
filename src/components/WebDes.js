@@ -3,6 +3,7 @@ import react, { useCallback, useEffect, useState } from "react";
 import PhotoDataService from "../services/photos";
 import Carousel from 'react-bootstrap/Carousel';
 
+
 const WebDes = ({ }) => {
 
     const [photos, setPhotos] = useState([]);

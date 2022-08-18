@@ -7,7 +7,6 @@ const PublicPhotos = (user) => {
     const[photos, setPhotos] = useState([]);
 
     const retrivePhotos = useCallback(() => {
-        
         PhotosDataService.getAll()
             .then(response => {
                 
