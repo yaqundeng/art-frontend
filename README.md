@@ -36,7 +36,7 @@ Contribution and Progress
 
 1.Yaqun Deng: Added a 3rd-party library: react-easy-crop. This function will give us a different look of the pictures, where you can adjust the size, and rotate the pictures by yourself. Added 3 components, and updated services accordingly. Working together to develop "upload image" function.
 
-2.Yichen Han: Added 4 components and related css files. Styled the pages and buttons, and created an api on the backend to get a list of data by a group of ids. Designed services on the frontend to interact with the new developed api. Review code and debug for other teammates. Working together to develop "upload image" function. Post everying on Piazza, put data on Altas and deploy the app on Heroku.
+2.Yichen Han: Added 4 components and related css files. Styled the pages and buttons, and created an api on the backend to get a list of data by a group of ids. Designed services on the frontend to interact with the new developed api. Review code and debug for other teammates. Working together to develop "upload image" function. Post everything on Piazza, put data on Altas and deploy the app on Heroku.
 
 Home Page:
 ![image](https://media.github.ccs.neu.edu/user/9542/files/2baf9700-382d-471e-ad3b-7e254943c934)
