@@ -26,12 +26,10 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                             if(personal) {
                                                 return;
                                             }
-
                                             const data = {
                                                 photo_id: photo._id,
                                                 like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
                                             }
-
                                             PhotosDataService.updatePhotoLike(data)
                                             .then(response => {
                                                 console.log("Update Likes of Photo Successfully")
@@ -39,13 +37,11 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                             .catch(error => {
                                                 console.log(error)
                                             })
-
                                         }}/>
                                         <div className="likeCounts">
                                             {photo.like.length}
                                         </div>
                                     </div>
-                                    
                                     :
                                     <div>
                                         <BsHeart className="heart heartEmpty" onClick={() => {

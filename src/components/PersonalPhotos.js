@@ -7,8 +7,6 @@ import PhotosDisplay from './PhotosDisplay';
 import {Link, useParams} from 'react-router-dom';
 
 const PersonalPhotos = ({user}) => {
-
-    let params = useParams();
     
     const[personalPhotos, setPersonalPhotos] = useState([]);
 
@@ -57,12 +55,11 @@ const PersonalPhotos = ({user}) => {
 
     return (
         <div className='App'>
-            <Link to ={"/photos/" + params.id + "/upload"}>
+            <Link to ={"/photos/" + user.googleId + "/upload"}>
                 <Button className="addPhotoBtn" variant="dark" type="button">
                     Add Photo
                 </Button>
             </Link>
-            
             
             <PhotosDisplay user={user} photos={personalPhotos} personal={true}>
 
