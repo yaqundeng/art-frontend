@@ -16,9 +16,7 @@ const PhotosDisplay = ({photos, user, personal}) => {
         <Form>
             <Row className="photoRow">
                 {photos.map((photo) => {
-                    
                     const set = new Set(photo.like);
-
                     return (
                         <Col key={photo._id}>
                             <Card className="photosListCard">
@@ -95,11 +93,9 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                 <Card.Img className="smallPoster" src={photo.img} />
                                 <Card.Body>
                                     <Card.Title>{photo.name}</Card.Title>
-                                    
                                     <Card.Text>
                                         Photo by {photo.user_name}
                                     </Card.Text>
-                                    
                                     <Link className="reviewLink" to={"/photos/"+photo._id}>
                                         <Button variant="dark" type="button">
                                             {personal ? "Edit or Delete": "Operations and Details" }
