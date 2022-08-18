@@ -51,7 +51,8 @@ Personal photos:
 ![image](https://media.github.ccs.neu.edu/user/9542/files/e631bd13-a1bb-4a4f-8a20-0033585e46a5)
 
 Add photo:
-![image](https://media.github.ccs.neu.edu/user/9542/files/32461708-fd3b-4d04-96b1-840988509b48)
+<img width="1154" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/5d21281c-d044-458e-914c-11bc1ef846ad">
+
 
 Edit photo and add reviews:
-![image](https://media.github.ccs.neu.edu/user/9542/files/d6b28c53-cda2-4487-ac5b-f2adf74c814b)
+
