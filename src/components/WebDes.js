@@ -43,8 +43,8 @@ const WebDes = ({ }) => {
                 })}
             </Carousel>
             <div className="desContainer">
-            <h3 className="descriptionTitle">Welcome to Artist Portfolio! Click Photos Page to See More.</h3>
-
+            <h3 className="descriptionTitle">Welcome to Artist Portfolio!</h3>
+            <h3 className="descriptionTitle">Click Photos Page to See More!</h3>
                 <h5 className="desText">
                     Maybe you want to keep a blog of moments captured on their cameraphone,
                     or maybe you want to show off your best pictures to the whole world in a bid for web celebrity.
