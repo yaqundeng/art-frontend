@@ -60,7 +60,7 @@ const UploadImages = ({ user }) => {
                     <Form.Control className="control" id="photo_name" type="text" />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label className="mx-3">Upload Photo</Form.Label>
+                    <Form.Label className="mx-3">Upload Photo Upload Photo (recommend Aspect ratio 3:2; photos should not exceed 5MB.)</Form.Label>
                     <Form.Control className="control" id="fileInput" type="file" />
                 </Form.Group>
                 <Button variant="dark" type="submit">
