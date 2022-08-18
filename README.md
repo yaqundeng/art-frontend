@@ -18,10 +18,13 @@ This is the frontend: https://artportfolio-frontend.herokuapp.com/
 >>>>>>> 85c9f82c36bfbd9dcbaa2cca06d9a5bd790b4855
 
 Iter 2:
+
 Contribution and Progress
+
 1. Yaqun Deng: Corrected earlier functions including app.js and photo services. Created new pages edit photo and reviews. Added google id login methods. Updated library setups for the next iteration.
 2. Yichen Han: Created the home and portfolio page, and connected the backend to design the review page. Updated the frame of the whole app, and added the "like" feature.
 3. Wen Huang: Set up backend apis. Allowing user to get/add/delete photos, get/add/edit/delete reviews and get/edit portfolios. Link AWS S3 and the backend to store images in cloud.
+
 We are making progress as planed. More apis provided in the backend, and created and designed more pages on the frontend. Implemented some functions (eg. screenshot), and added more features (eg. likes) to improve user experience.
 
 <img width="1086" alt="image" src="https://media.github.ccs.neu.edu/user/9542/files/d9f3d7ce-3164-4faf-bd5b-7e016932a14f">
@@ -29,4 +32,26 @@ We are making progress as planed. More apis provided in the backend, and created
 
 Iter 3:
 
-Yaqun Deng: Added a 3rd-party library: react-easy-crop. This function will give us a different look of the pictures, where you can adjust the size, and rotate the pictures by yourself. Added 3 components, and updated services accordingly. Working together to develop "upload image" function.
+Contribution and Progress
+
+1.Yaqun Deng: Added a 3rd-party library: react-easy-crop. This function will give us a different look of the pictures, where you can adjust the size, and rotate the pictures by yourself. Added 3 components, and updated services accordingly. Working together to develop "upload image" function.
+
+2.Yichen Han: Added 4 components and related css files. Styled the pages and buttons, and created an api on the backend to get a list of data by a group of ids. Designed services on the frontend to interact with the new developed api. Review code and debug for other teammates. Working together to develop "upload image" function. Post everying on Piazza, put data on Altas and deploy the app on Heroku.
+
+Home Page:
+![image](https://media.github.ccs.neu.edu/user/9542/files/2baf9700-382d-471e-ad3b-7e254943c934)
+![image](https://media.github.ccs.neu.edu/user/9542/files/e3b202c2-a2b5-4964-b536-772dc79f98ff)
+
+Public photos:
+![image](https://media.github.ccs.neu.edu/user/9542/files/fe441a8e-dd08-40ca-8a0a-3baf4170536b)
+
+Personal photos:
+![image](https://media.github.ccs.neu.edu/user/9542/files/e631bd13-a1bb-4a4f-8a20-0033585e46a5)
+
+Add photo:
+![image](https://media.github.ccs.neu.edu/user/9542/files/32461708-fd3b-4d04-96b1-840988509b48)
+
+Edit photo and add reviews:
+![image](https://media.github.ccs.neu.edu/user/9542/files/d6b28c53-cda2-4487-ac5b-f2adf74c814b)
+
+
