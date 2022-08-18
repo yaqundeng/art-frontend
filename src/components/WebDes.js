@@ -12,7 +12,11 @@ const WebDes = ({ }) => {
 
         PhotoDataService.getAll()
             .then(response => {
-                setPhotos(response.data);
+                const top20 = [];
+                for (let i = 0; i < 20 && i < response.data.length; i++) {
+                    top20.push(response.data[i]);
+                }
+                setPhotos(top20);
             })
             .catch(e => {
                 console.log(e);
