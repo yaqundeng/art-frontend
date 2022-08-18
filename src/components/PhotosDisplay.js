@@ -16,6 +16,9 @@ const PhotosDisplay = ({photos, user, personal}) => {
         <Form>
             <Row className="photoRow">
                 {photos.map((photo) => {
+                    
+                    const set = new Set(photo.like);
+
                     return (
                         <Col key={photo._id}>
                             <Card className="photosListCard">
@@ -26,17 +29,38 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                             if(personal) {
                                                 return;
                                             }
-                                            const data = {
-                                                photo_id: photo._id,
-                                                like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
+                                            
+                                            if(!set.has(user.user.googleId)) {
+                                                const data = {
+                                                    photo_id: photo._id,
+                                                    like: [...photo.like, (user.user.googleId ? user.user.googleId : "unkonwn user")]
+                                                }
+                                                PhotosDataService.updatePhotoLike(data)
+                                                .then(response => {
+                                                    console.log("Update Likes of Photo Successfully")
+                                                })
+                                                .catch(error => {
+                                                    console.log(error)
+                                                })
                                             }
-                                            PhotosDataService.updatePhotoLike(data)
-                                            .then(response => {
-                                                console.log("Update Likes of Photo Successfully")
-                                            })
-                                            .catch(error => {
-                                                console.log(error)
-                                            })
+                                            else {
+                                                set.delete(user.user.googleId);
+                                                const likeArray = Array.from(set);
+
+                                                const data = {
+                                                    photo_id: photo._id,
+                                                    like: likeArray
+                                                }
+                                                PhotosDataService.updatePhotoLike(data)
+                                                .then(response => {
+                                                    console.log("Update Likes of Photo Successfully")
+                                                })
+                                                .catch(error => {
+                                                    console.log(error)
+                                                })
+
+                                            }
+                                            
                                         }}/>
                                         <div className="likeCounts">
                                             {photo.like.length}
@@ -45,12 +69,12 @@ const PhotosDisplay = ({photos, user, personal}) => {
                                     :
                                     <div>
                                         <BsHeart className="heart heartEmpty" onClick={() => {
-                                            if(personal) {
+                                            if(personal || set.has(user.user.googleId)) {
                                                 return;
                                             }
                                             const data = {
                                                 photo_id: photo._id,
-                                                like: [...photo.like, (user.googleId ? user.googleId : "unkonwn user")]
+                                                like: [...photo.like, (user.user.googleId ? user.user.googleId : "unkonwn user")]
                                             }
 
                                             PhotosDataService.updatePhotoLike(data)

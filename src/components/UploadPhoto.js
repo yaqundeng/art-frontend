@@ -63,7 +63,7 @@ const UploadImages = ({ user }) => {
                     <Form.Label className="mx-3">Upload Photo</Form.Label>
                     <Form.Control className="control" id="fileInput" type="file" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="dark" type="submit">
                     Submit
                 </Button>
             </Form>

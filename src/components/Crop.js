@@ -6,6 +6,7 @@ import { withStyles } from '@mui/styles'
 import ImgDialog from './ImgDialog'
 import getCroppedImg from './cropImage'
 import { styles } from './styles'
+import "./Crop.css";
 
 const Demo = ({ img, classes }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -65,6 +66,7 @@ const Demo = ({ img, classes }) => {
             max={3}
             step={0.1}
             aria-labelledby="Zoom"
+            className="sliderBar"
             classes={{ root: classes.slider }}
             onChange={(e, zoom) => setZoom(zoom)}
           />
@@ -81,6 +83,7 @@ const Demo = ({ img, classes }) => {
             min={0}
             max={360}
             step={1}
+            className="sliderBar"
             aria-labelledby="Rotation"
             classes={{ root: classes.slider }}
             onChange={(e, rotation) => setRotation(rotation)}

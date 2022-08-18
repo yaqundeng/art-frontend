@@ -82,7 +82,9 @@ const EditPhoto = ({ user }) => {
                 <Col>
                     {user &&
                         <Link to={"/photos/" + params.id + "/review"}>
-                            Add review
+                            <Button variant="dark" type="button">
+                                Add Review
+                            </Button>
                         </Link>}
                 </Col>
                 <br></br>

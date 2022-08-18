@@ -75,7 +75,7 @@ const Review = ({ user }) => {
                     defaultValue={ editing ? null : "" }
                     />
                 </Form.Group>
-                <Button variant="primary" onClick={ saveReview }>
+                <Button variant="dark" onClick={ saveReview }>
                     Submit
                 </Button>
             </Form>
