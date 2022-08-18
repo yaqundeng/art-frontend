@@ -1,11 +1,44 @@
 import "./WebDes.css"
+import react, {useCallback, useEffect, useState} from "react"
+import PhotoDataService from "../services/photos"
 
-const WebDes = () => {
+const WebDes = ({}) => {
+
+    const[photos, setPhotos] = useState([]);
+
+    const retrivePhotos = useCallback(() => {
+        
+        PhotoDataService.getAll()
+            .then(response => {
+                setPhotos(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }, [photos]);
+
+    useEffect(() => {
+        retrivePhotos();
+    }, [retrivePhotos])
+
     return (
 
         
         <div>
-            <img src="../homepic.jpg" alt="Home picture" className="homePic"/>
+            {photos.map((photo) => {
+                return (
+                    <div>
+                        <img src={photo.img} 
+                        alt="Home" 
+                        className="homePic"
+                        onError={({currentTarget}) => {
+                            currentTarget.onError = null;
+                            currentTarget.src ="../homepic.jpg"
+                        }}/>
+                    </div>
+                )
+            })}
+            {/* <img src={photos[0].img} alt="Home picture" className="homePic"/> */}
             <div className="desContainer">
                 <h1 className="descriptionTitle">We are Hala Madrid</h1>
                 <h5 className="desText">        
