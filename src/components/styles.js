@@ -31,10 +31,12 @@ export const styles = (theme) => ({
       // [theme.breakpoints.down('xs')]: {
       //   minWidth: 65,
       // },
+      
     },
     slider: {
       padding: '22px 0px',
       marginLeft: 32,
+      
       // [theme.breakpoints.up('sm')]: {
       //   flexDirection: 'row',
       //   alignItems: 'center',

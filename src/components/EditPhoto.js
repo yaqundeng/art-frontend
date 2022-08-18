@@ -102,11 +102,14 @@ const EditPhoto = ({ user }) => {
                                             state={{
                                                 currentReview: review
                                             }}>
-                                            Edit
+                                                <Button variant="dark" type="button">
+                                                    Edit
+                                                </Button>
+                                            
                                         </Link>
                                     </Col>
                                     <Col>
-                                        <Button variant='link' onClick={() => {
+                                        <Button variant='dark' onClick={() => {
                                             var reviewData = {
                                                 review: review,
                                                 user_id: review.user_id,
